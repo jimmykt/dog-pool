@@ -1,0 +1,21 @@
+@use "../../styles/partials/mixins.scss" as *;
+
+.SignUpPage {
+  @include mobile-side-padding;
+
+  margin-top: 1rem;
+
+  &__dog-info {
+    width: 100%;
+  }
+
+  &__button {
+    @include button-defaults;
+    width: 100%;
+    margin-top: 0.5rem;
+    color: white;
+    background-color: #0095f6;
+    height: 1.5rem;
+    font-size: 1rem;
+  }
+}

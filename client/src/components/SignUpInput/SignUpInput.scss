@@ -1,0 +1,12 @@
+.SignUpInput {
+  width: 100%;
+  display: flex;
+  margin-bottom: 0.5rem;
+
+  &__input {
+    width: 100%;
+    padding: 0.2rem;
+    border-radius: 0.25rem;
+    border: 1px solid black;
+  }
+}
