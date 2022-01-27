@@ -25,7 +25,7 @@ export default class SignUpPage extends Component {
       })
       .then(() => {
         this.setState({ success: true, error: "" });
-        e.target.reset();
+        this.props.history.push("/signup/add-dog");
       })
       .catch((error) => {
         console.log(error);

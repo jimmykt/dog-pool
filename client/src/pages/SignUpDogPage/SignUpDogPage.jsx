@@ -1,6 +1,7 @@
 import "./SignUpDogPage.scss";
 import { Component } from "react";
 import axios from "axios";
+import DatePicker from "react-datepicker";
 
 import SignUpInput from "../../components/SignUpInput/SignUpInput";
 
@@ -8,35 +9,55 @@ export default class SignUpPage extends Component {
   state = {
     error: "",
     success: false,
+    date: new Date(),
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(e.target.dog_name.value);
+    console.log(e.target.birthday.value);
+    console.log(e.target.dog_info.value);
+    console.log(typeof e.target.dog_name.value);
+    console.log(typeof e.target.birthday.value);
+    console.log(typeof e.target.dog_info.value);
 
     axios
-      .post("http://localhost:8080/register", {
-        first_name: event.target.first_name.value,
-        last_name: event.target.last_name.value,
-        email: event.target.email.value,
-        password: event.target.password.value,
-        phone_number: event.target.phone_number.value,
-        address: event.target.address.value,
-        city: event.target.city.value,
+      .post("http://localhost:8080/register/dog", {
+        dog_name: e.target.dog_name.value,
+        birthday: e.target.birthday.value,
+        dog_info: e.target.dog_info.value,
       })
       .then(() => {
         this.setState({ success: true, error: "" });
-        event.target.reset();
+        this.props.history.push("/signup/add-dog");
       })
       .catch((error) => {
+        console.log(error);
         this.setState({ success: false, error: error.response.data });
       });
   };
 
   render() {
     return (
-      <main className="SignUpPage">
+      <main className="SignUpDogPage">
         <form onSubmit={this.handleSubmit}>
           <SignUpInput placeholder="Dog Name" type="text" id="dog_name" />
+
+          <label
+            className="SignUpDogPage__birthday-label"
+            for="birthday"
+            id="birthday"
+          >
+            Birthday:{" "}
+          </label>
+          <input
+            className="SignUpDogPage__birthday-input"
+            type="date"
+            id="birthday"
+            name="birthday"
+          />
+
           <textarea
             className="SignUpPage__dog-info"
             name="dogInfo"
@@ -44,9 +65,8 @@ export default class SignUpPage extends Component {
             rows="5"
             placeholder="Dogs information"
           ></textarea>
-          {/* <Link to="/profile"> */}
+
           <button className="SignUpPage__button">Sign Up</button>
-          {/* </Link> */}
         </form>
       </main>
     );
