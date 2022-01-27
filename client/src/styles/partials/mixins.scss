@@ -1,0 +1,14 @@
+@use "./variables" as *;
+
+@mixin mobile-side-padding {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@mixin button-defaults {
+  border: 0px;
+  border-radius: 1.25rem;
+}
+
+@mixin input {
+}
