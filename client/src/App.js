@@ -6,6 +6,9 @@ import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import AddDog from "./pages/SignUpDogPage/SignUpDogPage";
 
 import PorfilePage from "./pages/ProfilePage/ProfilePage";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
   return (
@@ -13,10 +16,10 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path="/" component={LoginPage} />
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignUpPage} />
           <Route exact path="/add-dog/:id" component={AddDog} />
-
           <Route exact path="/profile" component={PorfilePage} />
         </Switch>
       </BrowserRouter>
