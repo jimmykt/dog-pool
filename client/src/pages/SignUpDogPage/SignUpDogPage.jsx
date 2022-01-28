@@ -1,7 +1,6 @@
 import "./SignUpDogPage.scss";
 import { Component } from "react";
 import axios from "axios";
-import DatePicker from "react-datepicker";
 
 import SignUpInput from "../../components/SignUpInput/SignUpInput";
 
@@ -20,13 +19,14 @@ export default class SignUpPage extends Component {
     console.log(e.target.dog_info.value);
     console.log(typeof e.target.dog_name.value);
     console.log(typeof e.target.birthday.value);
-    console.log(typeof e.target.dog_info.value);
+    console.log(this.props.match.params.id);
 
     axios
       .post("http://localhost:8080/register/dog", {
         dog_name: e.target.dog_name.value,
         birthday: e.target.birthday.value,
         dog_info: e.target.dog_info.value,
+        owner_id: this.props.match.params.id,
       })
       .then(() => {
         this.setState({ success: true, error: "" });
@@ -44,11 +44,7 @@ export default class SignUpPage extends Component {
         <form onSubmit={this.handleSubmit}>
           <SignUpInput placeholder="Dog Name" type="text" id="dog_name" />
 
-          <label
-            className="SignUpDogPage__birthday-label"
-            for="birthday"
-            id="birthday"
-          >
+          <label className="SignUpDogPage__birthday-label" id="birthday">
             Birthday:{" "}
           </label>
           <input

@@ -8,11 +8,14 @@ export default class SignUpPage extends Component {
   state = {
     error: "",
     success: false,
+
+    user: null,
+    failedAuth: false,
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-
+    // register user
     axios
       .post("http://localhost:8080/register/user", {
         first_name: e.target.first_name.value,
@@ -23,9 +26,18 @@ export default class SignUpPage extends Component {
         address: e.target.address.value,
         city: e.target.city.value,
       })
-      .then(() => {
+      .then((res) => {
         this.setState({ success: true, error: "" });
-        this.props.history.push("/signup/add-dog");
+
+        axios
+          .get("http://localhost:8080/getid/" + e.target.email.value)
+          .then((res) => {
+            const id = res.data.data.id;
+            this.props.history.push("/add-dog/" + id);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((error) => {
         console.log(error);

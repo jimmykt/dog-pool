@@ -8,7 +8,7 @@ exports.up = function (knex) {
     table.increments("id").primary();
     table.string("first_name").notNullable();
     table.string("last_name").notNullable();
-    table.string("email").notNullable().unique();
+    table.string("email").notNullable();
     table.string("password", 1000).notNullable();
     table.string("phone_number").notNullable();
     table.string("address").notNullable();

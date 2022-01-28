@@ -4,7 +4,7 @@ const knex = require("../knexConfig");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-const addNewUser = (req, res) => {
+exports.addNewUser = (req, res) => {
   const {
     first_name,
     last_name,
@@ -17,7 +17,6 @@ const addNewUser = (req, res) => {
 
   const hashedPassword = bcrypt.hashSync(password, 10);
 
-  console.log(hashedPassword);
   const newUser = {
     ...req.body,
     password: hashedPassword,
@@ -29,18 +28,19 @@ const addNewUser = (req, res) => {
       console.log("work"); //
       res.status(201).send("Registered successfully");
     })
-    .catch(() => {
+    .catch((error) => {
       console.log("no reg"); //
+      console.log(error); //
+
       res.status(400).send("Failed registration");
     });
 };
 
-const addDog = (req, res) => {
+exports.addDog = (req, res) => {
   const { dog_name, birthday, dog_info } = req.body;
 
   const newDog = {
     ...req.body,
-    owner_id: 1,
   };
 
   knex("dogs")
@@ -57,7 +57,56 @@ const addDog = (req, res) => {
     });
 };
 
-module.exports = {
-  addNewUser,
-  addDog,
+exports.loginUser = (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).send("Please enter the required fields.");
+  }
+  knex("users")
+    .where({ email: email })
+    .first()
+    .then((user) => {
+      const isPasswordCorrect = bcrypt.compareSync(password, user.password);
+
+      if (!isPasswordCorrect) return res.status(400).send("Invalid password");
+
+      const token = jwt.sign(
+        {
+          id: user.id,
+          first_name: user.first_name,
+          last_name: user.last_name,
+          email: user.email,
+          phone_number: user.phone_number,
+          address: user.address,
+          city: user.city,
+        },
+        process.env.JWT_SECRET,
+        { expiresIn: "24h" }
+      );
+      console.log(token);
+      res.json({ token });
+    })
+    .catch((err) => {
+      console.log("whyyyy??");
+      console.log(err);
+      res.status(400).send("Invalid credentials");
+    });
+};
+
+exports.getId = (req, res) => {
+  const { email } = req.params;
+
+  // Find the user
+  knex("users")
+    .where({ email: email })
+    .first()
+    .then((user) => {
+      const data = { id: user.id, email: user.email };
+
+      res.json({ data });
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
 };
