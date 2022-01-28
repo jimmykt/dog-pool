@@ -1,10 +1,15 @@
 import "./LoginPage.scss";
 import { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import Logo from "../../assets/logo.jpg";
 
 export default class LoginPage extends Component {
+  state = {
+    error: "",
+    successLogin: false,
+  };
+
   loginHandler = (e) => {
     e.preventDefault();
 
@@ -13,12 +18,14 @@ export default class LoginPage extends Component {
         email: e.target.email.value,
         password: e.target.password.value,
       })
-      .then((response) => {
-        sessionStorage.setItem("token", response.data.token);
-        this.setState({ success: true });
+      .then((res) => {
+        console.log("logged in");
+        sessionStorage.setItem("token", res.data.token);
+        this.setState({ successLogin: true });
       })
       .catch((error) => {
-        this.setState({ error: error.response.data });
+        console.log(error);
+        this.setState({ error: error.res.data });
       });
   };
 
@@ -43,6 +50,11 @@ export default class LoginPage extends Component {
             placeholder="password"
           />
           <button className="login__login-button">Login</button>
+
+          {this.state.error && (
+            <div className="login__message">{this.state.error}</div>
+          )}
+          {this.state.successLogin && <Redirect to="/" />}
         </form>
 
         <Link className="login__signup" to="/signup">

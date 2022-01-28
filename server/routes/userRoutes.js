@@ -4,10 +4,12 @@ const router = express.Router();
 const controller = require("../controllers/userController");
 
 router.route("/register/user").post(controller.addNewUser);
+router.route("/getid/:email").get(controller.getId);
 router.route("/register/dog").post(controller.addDog);
 
 router.route("/login").post(controller.loginUser);
+router.route("/current").get(controller.getCurrentUser);
 
-router.route("/getid/:email").get(controller.getId);
+router.route("/get-dog-by/:id").get(controller.getUserDog);
 
 module.exports = router;

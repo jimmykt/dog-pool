@@ -10,6 +10,8 @@ exports.up = function (knex) {
     table.string("birthday").notNullable();
     table.string("dog_info", 5000).notNullable();
     table.integer("owner_id").unsigned();
+    table.binary("photo_file");
+    table.string("photo_name");
     table.foreign("owner_id").references("users.id");
   });
 };
