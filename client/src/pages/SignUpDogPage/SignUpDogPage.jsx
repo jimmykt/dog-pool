@@ -51,13 +51,6 @@ export default class SignUpPage extends Component {
             id="photo"
             onChange={this.saveFile}
           />
-          <input
-            type="file"
-            name="image"
-            accept="image/*"
-            multiple={false}
-            onChange={imageHandler}
-          />
 
           <SignUpInput placeholder="Dog Name" type="text" id="dog_name" />
 
