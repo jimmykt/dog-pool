@@ -7,8 +7,6 @@ import Logo from "../../assets/logo.jpg";
 export default class LoginPage extends Component {
   loginHandler = (e) => {
     e.preventDefault();
-    console.log(e.target.email.value);
-    console.log(e.target.password.value);
 
     axios
       .post("http://localhost:8080/login", {
