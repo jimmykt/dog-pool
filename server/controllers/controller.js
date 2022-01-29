@@ -76,10 +76,17 @@ exports.addToPool = (req, res) => {
 };
 
 exports.removeFromPool = (req, res) => {
-  const { dog_name } = req.body;
-  console.log(dog_name);
-  model.removeFromPool(remove);
-  res.json(remove);
+  const idToDelete = req.params;
+  model.removeFromPool(idToDelete);
+  res.json("Deleted");
+};
+
+exports.getAllPool = (req, res) => {
+  const poolData = model.getAllPool;
+  console.log("ere");
+  console.log(poolData);
+
+  res.json(poolData);
 };
 /*
 

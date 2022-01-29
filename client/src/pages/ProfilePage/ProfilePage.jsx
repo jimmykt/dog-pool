@@ -1,8 +1,9 @@
-import { API_URL } from "../../App";
 import "./ProfilePage.scss";
 import { Component } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_URL } from "../../App";
+import axios from "axios";
+
 import Header from "../../components/Header/Header";
 
 class ProfilePage extends Component {
@@ -50,14 +51,13 @@ class ProfilePage extends Component {
   };
 
   addDogToPool = () => {
-    //console.log(this.state.dog);
-    //console.log(this.state.user);
-    const { owner_id, dog_name, photo } = this.state.dog;
+    const { owner_id, dog_name, photo, id } = this.state.dog;
     const { first_name, last_name, email, phone_number, address, city } =
       this.state.user;
 
     const dogToPool = {
       owner_id,
+      dog_id: id,
       dog_name,
       photo,
       first_name,
@@ -70,35 +70,19 @@ class ProfilePage extends Component {
 
     axios
       .post(API_URL + "/pool", dogToPool)
-      .then((res) => {})
+      .then((res) => {
+        console.log(res.data);
+      })
       .catch((err) => console.log(err));
   };
 
   removeFromPool = () => {
-    const { owner_id, dog_name, photo } = this.state.dog;
-    const { first_name, last_name, email, phone_number, address, city } =
-      this.state.user;
-
-    const dogToRemove = {
-      owner_id,
-      dog_name,
-      photo,
-      first_name,
-      last_name,
-      email,
-      phone_number,
-      address,
-      city,
-    };
-
     axios
-      .delete(API_URL + "/pool-remove", dogToRemove)
+      .delete(API_URL + "/pool/" + this.state.dog.id)
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
   };
 
   render() {
@@ -123,10 +107,9 @@ class ProfilePage extends Component {
 
     const { first_name } = this.state.user;
     const { dog_name, birthday, dog_info, photo } = this.state.dog;
-
     return (
       <>
-        <Header />
+        <Header avatar={this.state.dog.photo} />
         <main className="profile">
           <div className="profile__welcome">
             <h1 className="">Welcome back, {first_name} </h1>
@@ -141,14 +124,14 @@ class ProfilePage extends Component {
 
           <div className="profile__status">
             <p>Do you need your dog walked today?</p>
-            {/* <Link to="/"> */}
-            <button
-              className="profile__poolmydog-button"
-              onClick={this.addDogToPool}
-            >
-              Pool My Dog
-            </button>
-            {/* </Link> */}
+            <Link to="/">
+              <button
+                className="profile__poolmydog-button"
+                onClick={this.addDogToPool}
+              >
+                Pool My Dog
+              </button>
+            </Link>
 
             <button
               className="profile__remove-pool"

@@ -29,39 +29,6 @@ class Header extends Component {
     } else {
       this.setState({ loginCheck: true });
     }
-    /*
-    axios
-      .get("http://localhost:8080/current", {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      })
-      .then((response) => {
-        this.setState({
-          user: response.data,
-        });
-      })
-      .then(() => {
-        // getting dog data
-        axios
-          .get("http://localhost:8080/get-dog-by/" + this.state.user.id)
-
-          .then((res) => {
-            this.setState({
-              dogData: res.data,
-            });
-          })
-          .catch((err) => console.log(err));
-        //
-      })
-      .catch((err) => {
-        console.log(err);
-        this.setState({
-          failedAuth: true,
-        });
-      });
-
-      */
   }
 
   render() {
@@ -81,13 +48,13 @@ class Header extends Component {
     if (this.loginCheck) {
       return (
         <header className="header">
-          {/* <p>{this.state.dogData.dog_name}</p> */}
-
           <Link to="/profile">
-            <div className="header__avatar"></div>
+            <img className="header__avatar" src={this.props.avatar} alt="" />
           </Link>
 
-          <h1 className="header__title">DogPool</h1>
+          <Link to="/" className="header__title">
+            <h1 className="header__title">DogPool</h1>
+          </Link>
           <div className="header__toggle">
             <span className="header__bar"></span>
             <span className="header__bar"></span>

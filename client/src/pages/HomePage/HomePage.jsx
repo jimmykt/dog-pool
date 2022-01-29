@@ -1,12 +1,17 @@
 import "./HomePage.scss";
 import { Component } from "react";
+
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_URL } from "../../App";
+import Header from "../../components/Header/Header";
 
 class HomePage extends Component {
   state = {
     user: null,
     failedAuth: false,
+
+    dogsNeedPoolData: null,
   };
 
   componentDidMount() {
@@ -18,7 +23,7 @@ class HomePage extends Component {
     }
 
     axios
-      .get("http://localhost:8080/current", {
+      .get(API_URL + "/current", {
         headers: {
           Authorization: "Bearer " + token,
         },
@@ -28,6 +33,7 @@ class HomePage extends Component {
           user: response.data,
         });
       })
+      .then(() => {})
       .catch((err) => {
         console.log(err);
         this.setState({
@@ -67,12 +73,15 @@ class HomePage extends Component {
     const { first_name, last_name } = this.state.user;
 
     return (
-      <main className="home">
-        <h1 className="">Home Page</h1>
-        <p>
-          Welcome back, {first_name} {last_name}! 👋
-        </p>
-      </main>
+      <>
+        <Header />
+        <main className="home">
+          <h1 className="">Home Page</h1>
+          <p>
+            Welcome back, {first_name} {last_name}! 👋
+          </p>
+        </main>
+      </>
     );
   }
 }
