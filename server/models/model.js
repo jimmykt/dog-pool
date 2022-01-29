@@ -74,5 +74,6 @@ module.exports.removeFromPool = (remove) => {
 };
 
 module.exports.getAllPool = () => {
-  return readPool();
+  const poolData = readPool();
+  return poolData;
 };

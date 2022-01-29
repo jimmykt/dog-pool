@@ -6,7 +6,12 @@ const controller = require("../controllers/controller");
 router.route("/login").post(controller.loginUser);
 router.route("/current").get(controller.getCurrentUser);
 
-router.route("/pool").post(controller.addToPool).get(controller.getAllPool);
+router
+  .route("/pool")
+  //add one to pool
+  .post(controller.addToPool)
+  //get all in pool
+  .get(controller.getAllPool);
 
 router.route("/pool/:id").delete(controller.removeFromPool);
 

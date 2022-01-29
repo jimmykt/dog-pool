@@ -34,7 +34,7 @@ module.exports.loginUser = (req, res) => {
   }
 };
 
-exports.getCurrentUser = (req, res) => {
+module.exports.getCurrentUser = (req, res) => {
   // If there is no auth header provided
   if (!req.headers.authorization) {
     return res.status(401).send("Please login");
@@ -59,7 +59,7 @@ exports.getCurrentUser = (req, res) => {
   });
 };
 
-exports.addToPool = (req, res) => {
+module.exports.addToPool = (req, res) => {
   const add = ({
     owner_id,
     dog_name,
@@ -75,22 +75,14 @@ exports.addToPool = (req, res) => {
   res.json(add);
 };
 
-exports.removeFromPool = (req, res) => {
+module.exports.removeFromPool = (req, res) => {
   const idToDelete = req.params;
   model.removeFromPool(idToDelete);
   res.json("Deleted");
 };
 
-exports.getAllPool = (req, res) => {
-  const poolData = model.getAllPool;
-  console.log("ere");
-  console.log(poolData);
+module.exports.getAllPool = (req, res) => {
+  const poolData = model.getAllPool();
 
   res.json(poolData);
 };
-/*
-
-
-
- 
-*/
