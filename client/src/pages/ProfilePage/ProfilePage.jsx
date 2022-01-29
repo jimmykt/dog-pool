@@ -67,16 +67,39 @@ class ProfilePage extends Component {
       address,
       city,
     };
-    console.log(dogToPool);
+
     axios
-      .post(API_URL + "/add-to-pool", dogToPool)
-      .then((res) => {
-        console.log(res);
-      })
+      .post(API_URL + "/pool", dogToPool)
+      .then((res) => {})
       .catch((err) => console.log(err));
   };
 
-  removeFromPool = () => {};
+  removeFromPool = () => {
+    const { owner_id, dog_name, photo } = this.state.dog;
+    const { first_name, last_name, email, phone_number, address, city } =
+      this.state.user;
+
+    const dogToRemove = {
+      owner_id,
+      dog_name,
+      photo,
+      first_name,
+      last_name,
+      email,
+      phone_number,
+      address,
+      city,
+    };
+
+    axios
+      .delete(API_URL + "/pool-remove", dogToRemove)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   render() {
     if (this.state.failedAuth) {
@@ -118,12 +141,15 @@ class ProfilePage extends Component {
 
           <div className="profile__status">
             <p>Do you need your dog walked today?</p>
+            {/* <Link to="/"> */}
             <button
               className="profile__poolmydog-button"
               onClick={this.addDogToPool}
             >
               Pool My Dog
             </button>
+            {/* </Link> */}
+
             <button
               className="profile__remove-pool"
               onClick={this.removeFromPool}

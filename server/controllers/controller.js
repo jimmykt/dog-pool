@@ -71,9 +71,15 @@ exports.addToPool = (req, res) => {
     address,
     city,
   } = req.body);
-
   model.addToPool(add);
-  res.json(add).send("added");
+  res.json(add);
+};
+
+exports.removeFromPool = (req, res) => {
+  const { dog_name } = req.body;
+  console.log(dog_name);
+  model.removeFromPool(remove);
+  res.json(remove);
 };
 /*
 

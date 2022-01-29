@@ -60,6 +60,16 @@ module.exports.getDog = (id) => {
 
 module.exports.addToPool = (add) => {
   const poolData = readPool();
+  console.log("heree");
   poolData.push(add);
-  writePool(add);
+
+  writePool(poolData);
+};
+
+module.exports.removeFromPool = (remove) => {
+  const poolData = readPool();
+  const filteredOut = poolData.filter((object) => object.dog_name != remove);
+
+  writePool(filteredOut);
+  return remove;
 };
