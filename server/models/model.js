@@ -34,6 +34,14 @@ module.exports.getUser = (email) => {
   const found = userData.find((user) => {
     return email === user.email;
   });
+  return found;
+};
 
+module.exports.getDog = (id) => {
+  const dogsData = this.getAllDogs();
+  console.log(id);
+  const found = dogsData.find((dog) => {
+    return id === dog.owner_id;
+  });
   return found;
 };

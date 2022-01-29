@@ -29,7 +29,7 @@ class Header extends Component {
     } else {
       this.setState({ loginCheck: true });
     }
-
+    /*
     axios
       .get("http://localhost:8080/current", {
         headers: {
@@ -60,6 +60,8 @@ class Header extends Component {
           failedAuth: true,
         });
       });
+
+      */
   }
 
   render() {

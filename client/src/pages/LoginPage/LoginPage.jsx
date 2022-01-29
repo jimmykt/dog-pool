@@ -32,13 +32,7 @@ export default class LoginPage extends Component {
   render() {
     return (
       <main className="login">
-        {/* <img className="login__logo" src={Logo} alt="man walking two dogs" /> */}
-        <img
-          className="login__logo"
-          src="https://drive.google.com/uc?export=view&id=XXX"
-          alt="asdas"
-        />
-
+        <img className="login__logo" src={Logo} alt="man walking two dogs" />
         <form className="login__form" onSubmit={this.loginHandler}>
           <input
             className="login__username"
@@ -59,7 +53,7 @@ export default class LoginPage extends Component {
           {this.state.error && (
             <div className="login__message">{this.state.error}</div>
           )}
-          {this.state.successLogin && <Redirect to="/" />}
+          {this.state.successLogin && <Redirect to="/profile" />}
         </form>
 
         <Link className="login__signup" to="/signup">

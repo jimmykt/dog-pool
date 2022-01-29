@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 class ProfilePage extends Component {
   state = {
     user: null,
+    dog: null,
     failedAuth: false,
-    dogData: null,
   };
 
   componentDidMount() {
@@ -25,24 +25,12 @@ class ProfilePage extends Component {
           Authorization: "Bearer " + token,
         },
       })
-      .then((response) => {
-        this.setState({
-          user: response.data,
-        });
-      })
-      .then(() => {
-        // getting dog data
-        axios
-          .get(API_URL + "/get-dog-by/" + this.state.user.id)
 
-          .then((res) => {
-            this.setState({
-              dogData: res.data,
-            });
-            console.log(res.data);
-          })
-          .catch((err) => console.log(err));
-        //
+      .then((res) => {
+        this.setState({
+          user: res.data.user,
+          dog: res.data.dog,
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -72,7 +60,7 @@ class ProfilePage extends Component {
       );
     }
 
-    if (!this.state.user || !this.state.dogData) {
+    if (!this.state.user || !this.state.dog) {
       return (
         <main className="profile">
           <p>Loading...</p>
@@ -81,7 +69,7 @@ class ProfilePage extends Component {
     }
 
     const { first_name } = this.state.user;
-    const { dog_name, birthday, dog_info, photo_file } = this.state.dogData;
+    const { dog_name, birthday, dog_info, photo } = this.state.dog;
 
     return (
       <main className="profile">
@@ -92,7 +80,7 @@ class ProfilePage extends Component {
         <div className="profile__dog">
           <p>Dog Name: {dog_name}</p>
           <p>{dog_info}</p>
-          <img src={photo_file} alt="dog" />
+          <img src={photo} alt="dog" />
         </div>
 
         <div className="profile__status">
