@@ -67,14 +67,11 @@ class HomePage extends Component {
     const { first_name, last_name } = this.state.user;
 
     return (
-      <main className="">
-        <h1 className="">Dashboard</h1>
+      <main className="home">
+        <h1 className="">Home Page</h1>
         <p>
           Welcome back, {first_name} {last_name}! 👋
         </p>
-        <button className="dashboard__logout" onClick={this.handleLogout}>
-          Log out
-        </button>
       </main>
     );
   }

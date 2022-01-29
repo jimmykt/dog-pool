@@ -82,7 +82,6 @@ exports.loginUser = (req, res) => {
         process.env.JWT_SECRET,
         { expiresIn: "24h" }
       );
-      console.log(token);
       res.json({ token });
     })
     .catch((err) => {
@@ -105,6 +104,7 @@ exports.getId = (req, res) => {
       res.json({ data });
     })
     .catch((err) => {
+      console.log(err);
       res.status(400).send(err);
     });
 };

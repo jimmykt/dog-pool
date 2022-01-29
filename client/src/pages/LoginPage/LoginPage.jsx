@@ -2,7 +2,6 @@ import "./LoginPage.scss";
 import { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
-import Logo from "../../assets/logo.jpg";
 
 export default class LoginPage extends Component {
   state = {
@@ -32,8 +31,7 @@ export default class LoginPage extends Component {
   render() {
     return (
       <main className="login">
-        <img className="login__logo" src={Logo} alt="man walking two dogs" />
-
+        <h1 className="login__title">Dog Pool</h1>
         <form className="login__form" onSubmit={this.loginHandler}>
           <input
             className="login__username"
@@ -54,7 +52,7 @@ export default class LoginPage extends Component {
           {this.state.error && (
             <div className="login__message">{this.state.error}</div>
           )}
-          {this.state.successLogin && <Redirect to="/" />}
+          {this.state.successLogin && <Redirect to="/profile" />}
         </form>
 
         <Link className="login__signup" to="/signup">

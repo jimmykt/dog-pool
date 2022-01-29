@@ -1,15 +1,23 @@
-// import InputField from "../InputField/InputField";
-//import { Link, NavLink } from "react-router-dom";
+import "./Header.scss";
+
 import { Component } from "react";
 import axios from "axios";
-
-import "./Header.scss";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   state = {
     user: null,
     failedAuth: false,
     dogData: null,
+
+    loginCheck: false,
+  };
+
+  loginCheck = () => {
+    this.setState({
+      loginCheck: true,
+    });
+    return true;
   };
 
   componentDidMount() {
@@ -18,8 +26,10 @@ class Header extends Component {
     if (!token) {
       this.setState({ failedAuth: true });
       return;
+    } else {
+      this.setState({ loginCheck: true });
     }
-
+    /*
     axios
       .get("http://localhost:8080/current", {
         headers: {
@@ -27,7 +37,6 @@ class Header extends Component {
         },
       })
       .then((response) => {
-        console.log(response); ///
         this.setState({
           user: response.data,
         });
@@ -41,7 +50,6 @@ class Header extends Component {
             this.setState({
               dogData: res.data,
             });
-            console.log(res.data);
           })
           .catch((err) => console.log(err));
         //
@@ -52,6 +60,8 @@ class Header extends Component {
           failedAuth: true,
         });
       });
+
+      */
   }
 
   render() {
@@ -59,9 +69,6 @@ class Header extends Component {
       return (
         <header className="header">
           <h1 className="header__title">DogPool</h1>
-
-          <div className="header__avatar"></div>
-
           <div className="header__toggle">
             <span className="header__bar"></span>
             <span className="header__bar"></span>
@@ -70,28 +77,25 @@ class Header extends Component {
         </header>
       );
     }
-    if (!this.state.dogData) {
+
+    if (this.loginCheck) {
       return (
-        <main className="dashboard">
-          <p>Loading...</p>
-        </main>
+        <header className="header">
+          {/* <p>{this.state.dogData.dog_name}</p> */}
+
+          <Link to="/profile">
+            <div className="header__avatar"></div>
+          </Link>
+
+          <h1 className="header__title">DogPool</h1>
+          <div className="header__toggle">
+            <span className="header__bar"></span>
+            <span className="header__bar"></span>
+            <span className="header__bar"></span>
+          </div>
+        </header>
       );
     }
-    return (
-      <header className="header">
-        <p>{this.state.dogData.dog_name}</p>
-        <img src={this.state.dogData.photo_file.data} alt="dog" />
-
-        <h1 className="header__title">DogPool</h1>
-
-        <div className="header__avatar"></div>
-        <div className="header__toggle">
-          <span className="header__bar"></span>
-          <span className="header__bar"></span>
-          <span className="header__bar"></span>
-        </div>
-      </header>
-    );
   }
 }
 export default Header;
