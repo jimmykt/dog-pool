@@ -1,0 +1,9 @@
+@use "../../styles/partials/mixins.scss" as *;
+
+.profile {
+  @include mobile-side-padding;
+  &__welcome {
+    display: flex;
+    align-items: center;
+  }
+}

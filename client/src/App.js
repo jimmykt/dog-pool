@@ -9,6 +9,8 @@ import PorfilePage from "./pages/ProfilePage/ProfilePage";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 import HomePage from "./pages/HomePage/HomePage";
+// export const API_URL = process.env.REACT_APP_API_URL;
+export const API_URL = "http://localhost:8080";
 
 function App() {
   return (

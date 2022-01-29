@@ -32,7 +32,12 @@ export default class LoginPage extends Component {
   render() {
     return (
       <main className="login">
-        <img className="login__logo" src={Logo} alt="man walking two dogs" />
+        {/* <img className="login__logo" src={Logo} alt="man walking two dogs" /> */}
+        <img
+          className="login__logo"
+          src="https://drive.google.com/uc?export=view&id=XXX"
+          alt="asdas"
+        />
 
         <form className="login__form" onSubmit={this.loginHandler}>
           <input
