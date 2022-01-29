@@ -31,9 +31,8 @@
   &__logout {
     @include button-defaults;
     padding: 0.25rem 2rem;
-    margin-top: 1rem;
     position: absolute;
     right: 1rem;
-    bottom: 1rem;
+    bottom: 0.5rem;
   }
 }

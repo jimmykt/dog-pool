@@ -50,8 +50,8 @@ class ProfilePage extends Component {
   };
 
   addDogToPool = () => {
-    console.log(this.state.dog);
-    console.log(this.state.user);
+    //console.log(this.state.dog);
+    //console.log(this.state.user);
     const { owner_id, dog_name, photo } = this.state.dog;
     const { first_name, last_name, email, phone_number, address, city } =
       this.state.user;
@@ -68,6 +68,12 @@ class ProfilePage extends Component {
       city,
     };
     console.log(dogToPool);
+    axios
+      .post(API_URL + "/add-to-pool", dogToPool)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
   };
 
   removeFromPool = () => {};
