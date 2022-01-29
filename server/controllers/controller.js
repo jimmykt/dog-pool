@@ -1,6 +1,7 @@
 const model = require("../models/model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const uniqid = require("uniqid");
 
 module.exports.loginUser = (req, res) => {
   const { email, password } = req.body;
@@ -58,6 +59,22 @@ exports.getCurrentUser = (req, res) => {
   });
 };
 
+exports.addToPool = (req, res) => {
+  const add = ({
+    owner_id,
+    dog_name,
+    photo,
+    first_name,
+    last_name,
+    email,
+    phone_number,
+    address,
+    city,
+  } = req.body);
+
+  model.addToPool(add);
+  res.json(add).send("added");
+};
 /*
 
 

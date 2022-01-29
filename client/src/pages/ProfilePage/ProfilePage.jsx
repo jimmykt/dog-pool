@@ -3,6 +3,7 @@ import "./ProfilePage.scss";
 import { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Header from "../../components/Header/Header";
 
 class ProfilePage extends Component {
   state = {
@@ -48,6 +49,29 @@ class ProfilePage extends Component {
     });
   };
 
+  addDogToPool = () => {
+    console.log(this.state.dog);
+    console.log(this.state.user);
+    const { owner_id, dog_name, photo } = this.state.dog;
+    const { first_name, last_name, email, phone_number, address, city } =
+      this.state.user;
+
+    const dogToPool = {
+      owner_id,
+      dog_name,
+      photo,
+      first_name,
+      last_name,
+      email,
+      phone_number,
+      address,
+      city,
+    };
+    console.log(dogToPool);
+  };
+
+  removeFromPool = () => {};
+
   render() {
     if (this.state.failedAuth) {
       return (
@@ -72,26 +96,43 @@ class ProfilePage extends Component {
     const { dog_name, birthday, dog_info, photo } = this.state.dog;
 
     return (
-      <main className="profile">
-        <div className="profile__welcome">
-          <h1 className="">Welcome back, {first_name} </h1>
-        </div>
+      <>
+        <Header />
+        <main className="profile">
+          <div className="profile__welcome">
+            <h1 className="">Welcome back, {first_name} </h1>
+          </div>
 
-        <div className="profile__dog">
-          <p>Dog Name: {dog_name}</p>
-          <p>{dog_info}</p>
-          <img src={photo} alt="dog" />
-        </div>
+          <div className="profile__dog">
+            <p>dogs name: {dog_name}</p>
+            <img className="profile__dog-photo" src={photo} alt="dog" />
 
-        <div className="profile__status">
-          <p>Do you need your dog walked today?</p>
-          <button>I need a Pool</button>
-        </div>
+            <p>{dog_info}</p>
+          </div>
 
-        <button className="profile__logout" onClick={this.handleLogout}>
-          Log out
-        </button>
-      </main>
+          <div className="profile__status">
+            <p>Do you need your dog walked today?</p>
+            <button
+              className="profile__poolmydog-button"
+              onClick={this.addDogToPool}
+            >
+              Pool My Dog
+            </button>
+            <button
+              className="profile__remove-pool"
+              onClick={this.removeFromPool}
+            >
+              remove
+            </button>
+          </div>
+
+          <Link to="/login">
+            <button className="profile__logout" onClick={this.handleLogout}>
+              Log out
+            </button>
+          </Link>
+        </main>
+      </>
     );
   }
 }

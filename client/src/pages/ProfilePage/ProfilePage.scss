@@ -1,9 +1,39 @@
 @use "../../styles/partials/mixins.scss" as *;
 
 .profile {
+  background-image: url("../../assets/profile-background.jpg");
   @include mobile-side-padding;
+  height: 100vh;
+  color: rgb(186, 169, 169);
+  position: relative;
+
   &__welcome {
     display: flex;
     align-items: center;
+  }
+
+  &__dog-photo {
+    max-width: 100%;
+    border-radius: 1.25rem;
+  }
+
+  &__poolmydog-button {
+    @include button-defaults;
+    background-color: rgb(138, 210, 138);
+    padding: 0.25rem 2rem;
+  }
+  &__remove-pool {
+    @include button-defaults;
+    background-color: rgb(255, 68, 0);
+    padding: 0.25rem 2rem;
+  }
+
+  &__logout {
+    @include button-defaults;
+    padding: 0.25rem 2rem;
+    margin-top: 1rem;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
   }
 }
