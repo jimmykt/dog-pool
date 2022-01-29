@@ -44,8 +44,11 @@ var upload = multer({
   storage: storage,
 });
 
-// routes
-const routes = require("./routes/userRoutes");
+// routes for sql in progress
+// const routes = require("./routes/userRoutes");
+// app.use("/", routes);
+
+const routes = require("./routes/routes");
 app.use("/", routes);
 
 // Server
