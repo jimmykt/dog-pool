@@ -110,21 +110,23 @@ class ProfilePage extends Component {
     const { dog_name, birthday, dog_info, photo } = this.state.dog;
     return (
       <>
-        <Header avatar={this.state.dog.photo} />
+        <Header />
         <main className="profile">
           <div className="profile__welcome">
             <h1 className="">Welcome back, {first_name} </h1>
           </div>
 
           <div className="profile__dog">
-            <p>dogs name: {dog_name}</p>
             <img className="profile__dog-photo" src={photo} alt="dog" />
-
-            <p>{dog_info}</p>
+            <p className="profile__text profile__text--margin-bottom">
+              {dog_info}
+            </p>
           </div>
 
           <div className="profile__status">
-            <p>Do you need your dog walked today?</p>
+            <p className="profile__text">
+              Do you need {dog_name} walked today?
+            </p>
             <Link to="/">
               <button
                 className="profile__poolmydog-button"

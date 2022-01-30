@@ -3,13 +3,14 @@ import "./Header.scss";
 import { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_URL } from "../../App";
 
 class Header extends Component {
   state = {
     user: null,
-    failedAuth: false,
-    dogData: null,
+    dog: null,
 
+    failedAuth: false,
     loginCheck: false,
   };
 
@@ -22,12 +23,31 @@ class Header extends Component {
 
   componentDidMount() {
     const token = sessionStorage.getItem("token");
-
+    console.log(token);
     if (!token) {
       this.setState({ failedAuth: true });
       return;
     } else {
       this.setState({ loginCheck: true });
+      axios
+        .get(API_URL + "/current", {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        })
+
+        .then((res) => {
+          this.setState({
+            user: res.data.user,
+            dog: res.data.dog,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          this.setState({
+            failedAuth: true,
+          });
+        });
     }
   }
 
@@ -44,12 +64,22 @@ class Header extends Component {
         </header>
       );
     }
-
+    if (!this.state.user || !this.state.dog) {
+      return (
+        <main className="profile">
+          <p>Loading...</p>
+        </main>
+      );
+    }
     if (this.loginCheck) {
       return (
         <header className="header">
           <Link to="/profile">
-            <img className="header__avatar" src={this.props.avatar} alt="" />
+            <img
+              className="header__avatar"
+              src={this.state.dog.photo}
+              alt="dog"
+            />
           </Link>
 
           <Link to="/" className="header__title">

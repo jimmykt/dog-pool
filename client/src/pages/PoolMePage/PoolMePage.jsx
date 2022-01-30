@@ -52,7 +52,7 @@ class PoolMePage extends Component {
 
           <div>
             <p className="PoolMePage__dog-info">
-              {pool.first_name + pool.last_name}
+              {pool.first_name + " " + pool.last_name}
             </p>
             <p className="PoolMePage__dog-info">{pool.email}</p>
             <p className="PoolMePage__dog-info">{pool.phone_number}</p>
