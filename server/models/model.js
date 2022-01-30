@@ -61,5 +61,19 @@ module.exports.getDog = (id) => {
 module.exports.addToPool = (add) => {
   const poolData = readPool();
   poolData.push(add);
-  writePool(add);
+
+  writePool(poolData);
+};
+
+module.exports.removeFromPool = (remove) => {
+  const poolData = readPool();
+  console.log(poolData);
+  const filteredOut = poolData.filter((object) => object.dog_id != remove.id);
+  writePool(filteredOut);
+  return remove;
+};
+
+module.exports.getAllPool = () => {
+  const poolData = readPool();
+  return poolData;
 };

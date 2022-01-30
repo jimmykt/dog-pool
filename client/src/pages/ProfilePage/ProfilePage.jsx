@@ -1,8 +1,9 @@
-import { API_URL } from "../../App";
 import "./ProfilePage.scss";
 import { Component } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_URL } from "../../App";
+import axios from "axios";
+
 import Header from "../../components/Header/Header";
 
 class ProfilePage extends Component {
@@ -50,14 +51,13 @@ class ProfilePage extends Component {
   };
 
   addDogToPool = () => {
-    console.log(this.state.dog);
-    console.log(this.state.user);
-    const { owner_id, dog_name, photo } = this.state.dog;
+    const { owner_id, dog_name, photo, id, dog_info } = this.state.dog;
     const { first_name, last_name, email, phone_number, address, city } =
       this.state.user;
 
     const dogToPool = {
       owner_id,
+      dog_id: id,
       dog_name,
       photo,
       first_name,
@@ -66,11 +66,25 @@ class ProfilePage extends Component {
       phone_number,
       address,
       city,
+      dog_info,
     };
-    console.log(dogToPool);
+
+    axios
+      .post(API_URL + "/pool", dogToPool)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
   };
 
-  removeFromPool = () => {};
+  removeFromPool = () => {
+    axios
+      .delete(API_URL + "/pool/" + this.state.dog.id)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
 
   render() {
     if (this.state.failedAuth) {
@@ -94,7 +108,6 @@ class ProfilePage extends Component {
 
     const { first_name } = this.state.user;
     const { dog_name, birthday, dog_info, photo } = this.state.dog;
-
     return (
       <>
         <Header />
@@ -104,20 +117,25 @@ class ProfilePage extends Component {
           </div>
 
           <div className="profile__dog">
-            <p>dogs name: {dog_name}</p>
             <img className="profile__dog-photo" src={photo} alt="dog" />
-
-            <p>{dog_info}</p>
+            <p className="profile__text profile__text--margin-bottom">
+              {dog_info}
+            </p>
           </div>
 
           <div className="profile__status">
-            <p>Do you need your dog walked today?</p>
-            <button
-              className="profile__poolmydog-button"
-              onClick={this.addDogToPool}
-            >
-              Pool My Dog
-            </button>
+            <p className="profile__text">
+              Do you need {dog_name} walked today?
+            </p>
+            <Link to="/">
+              <button
+                className="profile__poolmydog-button"
+                onClick={this.addDogToPool}
+              >
+                Pool My Dog
+              </button>
+            </Link>
+
             <button
               className="profile__remove-pool"
               onClick={this.removeFromPool}

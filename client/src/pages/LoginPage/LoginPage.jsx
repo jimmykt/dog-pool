@@ -3,6 +3,8 @@ import { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 
+import { API_URL } from "../../App";
+
 export default class LoginPage extends Component {
   state = {
     error: "",
@@ -13,7 +15,7 @@ export default class LoginPage extends Component {
     e.preventDefault();
 
     axios
-      .post("http://localhost:8080/login", {
+      .post(API_URL + "/login", {
         email: e.target.email.value,
         password: e.target.password.value,
       })

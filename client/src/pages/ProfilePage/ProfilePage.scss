@@ -5,6 +5,7 @@
   @include mobile-side-padding;
   height: 100vh;
   color: rgb(186, 169, 169);
+  color: black;
   position: relative;
 
   &__welcome {
@@ -17,23 +18,32 @@
     border-radius: 1.25rem;
   }
 
+  &__text {
+    font-weight: 500;
+    padding: 0rem 0.5rem;
+    &--margin-bottom {
+      margin-bottom: 0.5rem;
+    }
+  }
   &__poolmydog-button {
     @include button-defaults;
     background-color: rgb(138, 210, 138);
     padding: 0.25rem 2rem;
+    width: 10rem;
   }
   &__remove-pool {
     @include button-defaults;
     background-color: rgb(255, 68, 0);
     padding: 0.25rem 2rem;
+    width: 10rem;
+    margin-top: 0.5rem;
   }
 
   &__logout {
     @include button-defaults;
     padding: 0.25rem 2rem;
-    margin-top: 1rem;
     position: absolute;
     right: 1rem;
-    bottom: 1rem;
+    bottom: 3rem;
   }
 }

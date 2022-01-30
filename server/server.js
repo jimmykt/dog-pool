@@ -7,13 +7,7 @@ const bodyParser = require("body-parser");
 const multer = require("multer");
 
 //use express static folder
-app.use(
-  cors({
-    origin: true,
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.static("./public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

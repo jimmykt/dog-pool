@@ -1,0 +1,27 @@
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+
+.PoolMePage {
+  @include mobile-side-padding;
+  height: 100vh;
+  background-image: url("../../assets/background.jpg");
+  padding-top: 1rem;
+
+  &__photo {
+    width: 7rem;
+    border-radius: 1rem;
+  }
+
+  &__dog-info {
+    padding-left: 1rem;
+  }
+
+  &__dog-container {
+    display: flex;
+    align-items: center;
+  }
+}
+
+p {
+  margin-bottom: 0;
+}

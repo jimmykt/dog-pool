@@ -1,0 +1,30 @@
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+
+.poolcard {
+  margin: 0.5rem 0rem;
+  border: solid 1px black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 1rem;
+  padding: 0.5rem 0rem;
+  background: rgba(0, 0, 0, 0.2);
+
+  &__dog-name {
+    text-align: center;
+    margin-bottom: 0.2rem;
+  }
+
+  &__photo {
+    border-radius: 1rem;
+    width: 5rem;
+  }
+  &__pool-button {
+    @include button-defaults;
+    padding: 0.2rem 0.75rem;
+    background-color: $button-color;
+    color: black;
+    text-decoration: none;
+  }
+}
