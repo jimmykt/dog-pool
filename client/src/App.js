@@ -1,15 +1,16 @@
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import AddDog from "./pages/SignUpDogPage/SignUpDogPage";
-
 import PorfilePage from "./pages/ProfilePage/ProfilePage";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-
 import HomePage from "./pages/HomePage/HomePage";
-// export const API_URL = process.env.REACT_APP_API_URL;
-export const API_URL = "http://localhost:8080";
+import PoolMePage from "./pages/PoolMePage/PoolMePage";
+
+export const API_URL = process.env.REACT_APP_API_URL;
+// export const API_URL = "http://localhost:8080";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/signup" component={SignUpPage} />
           <Route exact path="/add-dog/:id" component={AddDog} />
           <Route exact path="/profile" component={PorfilePage} />
+          <Route exact path="/pool-me/:id" component={PoolMePage} />
         </Switch>
       </BrowserRouter>
     </div>

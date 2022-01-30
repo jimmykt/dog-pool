@@ -96,6 +96,8 @@ class HomePage extends Component {
                 key={dog.dog_id}
                 dog_name={dog.dog_name}
                 photo={dog.photo}
+                dog_id={dog.dog_id}
+                owner_id={dog.owner_id}
               />
             );
           })}

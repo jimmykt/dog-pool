@@ -86,3 +86,9 @@ module.exports.getAllPool = (req, res) => {
 
   res.json(poolData);
 };
+module.exports.getDogToPool = (req, res) => {
+  const poolData = model.getAllPool();
+  const { id } = req.params;
+  const found = poolData.find((dog) => dog.owner_id === id);
+  res.json(found);
+};

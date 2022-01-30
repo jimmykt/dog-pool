@@ -51,7 +51,7 @@ class ProfilePage extends Component {
   };
 
   addDogToPool = () => {
-    const { owner_id, dog_name, photo, id } = this.state.dog;
+    const { owner_id, dog_name, photo, id, dog_info } = this.state.dog;
     const { first_name, last_name, email, phone_number, address, city } =
       this.state.user;
 
@@ -66,6 +66,7 @@ class ProfilePage extends Component {
       phone_number,
       address,
       city,
+      dog_info,
     };
 
     axios

@@ -1,6 +1,7 @@
 import "./PoolCard.scss";
+import { Link } from "react-router-dom";
 
-export default function PoolCard({ dog_name, photo }) {
+export default function PoolCard({ dog_name, photo, owner_id }) {
   return (
     <article className="poolcard">
       <div>
@@ -9,7 +10,9 @@ export default function PoolCard({ dog_name, photo }) {
       </div>
 
       <div>
-        <button className="poolcard__pool-button">Pool Me</button>
+        <Link className="poolcard__pool-button" to={"/pool-me/" + owner_id}>
+          Pool Me
+        </Link>
       </div>
     </article>
   );

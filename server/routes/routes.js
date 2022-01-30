@@ -13,6 +13,10 @@ router
   //get all in pool
   .get(controller.getAllPool);
 
-router.route("/pool/:id").delete(controller.removeFromPool);
+router
+  .route("/pool/:id")
+  //get dog to pool by id
+  .get(controller.getDogToPool)
+  .delete(controller.removeFromPool);
 
 module.exports = router;
