@@ -20,6 +20,11 @@ class PoolMePage extends Component {
           dogToPool: res.data,
         });
       })
+      .then(() => {
+        axios.get(
+          "https://maps.googleapis.com/maps/api/directions/outputFormat?parameters"
+        );
+      })
       .catch((err) => console.log(err));
   }
 
