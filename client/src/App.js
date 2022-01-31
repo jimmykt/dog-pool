@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
@@ -9,8 +9,10 @@ import PorfilePage from "./pages/ProfilePage/ProfilePage";
 import HomePage from "./pages/HomePage/HomePage";
 import PoolMePage from "./pages/PoolMePage/PoolMePage";
 
-export const API_URL = process.env.REACT_APP_API_URL;
-// export const API_URL = "http://localhost:8080";
+// export let API_URL = process.env.REACT_APP_API_URL;
+export const API_URL = "http://localhost:8080";
+
+console.log(API_URL);
 
 function App() {
   return (

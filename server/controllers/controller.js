@@ -9,6 +9,7 @@ module.exports.loginUser = (req, res) => {
   const user = model.getUser(email);
 
   if (password === user.password) {
+    console.log("hi");
     const token = jwt.sign(
       {
         id: user.id,

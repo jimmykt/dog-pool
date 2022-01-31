@@ -4,6 +4,7 @@ import Header from "../../components/Header/Header";
 import { getDog } from "../../Util/axiosUtil";
 import axios from "axios";
 import { API_URL } from "../../App";
+import Map from "../../components/Map/Map";
 
 class PoolMePage extends Component {
   state = {
@@ -63,6 +64,38 @@ class PoolMePage extends Component {
             <p className="PoolMePage__dog-info">{pool.phone_number}</p>
             <p className="PoolMePage__dog-info">{pool.city}</p>
             <p className="PoolMePage__dog-info">{pool.address}</p>
+
+            {/* map */}
+            <Map />
+            {/* 
+            <div className="jumbotron">
+              <div className="container-fluid">
+                <h1>Find the distance</h1>
+                <form className="form-horizontal">
+                  <div className="form-group">
+                    <label for="from">
+                      <input type="text" id="from" placeholder="orgin" />
+                    </label>
+                    <div className="form-group">
+                      <label for="from">
+                        <input type="text" id="to" placeholder="destination" />
+                      </label>
+                    </div>
+                  </div>
+                </form>
+
+                <div>
+                  <button>Go</button>
+                </div>
+
+                <div className="container">
+                  <div id="googleMap"></div>
+                  <div id="output"></div>
+                </div>
+              </div>
+            </div>
+             */}
+            {/* map */}
           </div>
         </main>
       </>
