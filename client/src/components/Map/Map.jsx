@@ -12,7 +12,7 @@ class Map extends Component {
       lat: 43.64563,
       lng: -79.39545,
     },
-    zoom: 15,
+    zoom: 14,
   };
   // static defaultProps = {
   //   center: {

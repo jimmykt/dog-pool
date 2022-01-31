@@ -6,7 +6,7 @@
     "email": "test",
     "password": "test",
     "phone_number": "647-123-4567",
-    "address": "410 King St W",
+    "address": "7 Camden St",
     "city": "Toronto"
   },
 
@@ -28,8 +28,8 @@
     "email": "test2",
     "password": "test2",
     "phone_number": "647-123-4567",
-    "address": "460 King St W",
-    "city": "Toronto"
+    "address": "503 Broadway Penthouse",
+    "city": "New York"
   },
 
   {
@@ -39,7 +39,7 @@
     "email": "test3",
     "password": "test3",
     "phone_number": "647-123-4567",
-    "address": "460 King St W",
+    "address": "445 Adelaide St W",
     "city": "Toronto"
   },
 
@@ -50,7 +50,7 @@
     "email": "test4",
     "password": "test4",
     "phone_number": "647-123-4567",
-    "address": "460 King St W",
+    "address": "137 Peter St",
     "city": "Toronto"
   },
 
@@ -61,7 +61,7 @@
     "email": "test5",
     "password": "test5",
     "phone_number": "647-123-4567",
-    "address": "460 King St W",
+    "address": "115 Bathurst St",
     "city": "Toronto"
   }
 ]

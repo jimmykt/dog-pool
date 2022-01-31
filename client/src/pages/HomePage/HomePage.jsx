@@ -11,7 +11,6 @@ class HomePage extends Component {
   state = {
     user: null,
     failedAuth: false,
-
     dogPool: null,
   };
 
@@ -75,6 +74,8 @@ class HomePage extends Component {
     if (!this.state.user || !this.state.dogPool) {
       return (
         <main className="home">
+          <Header />
+
           <p>Loading...</p>
         </main>
       );

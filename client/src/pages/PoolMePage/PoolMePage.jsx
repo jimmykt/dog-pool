@@ -4,28 +4,56 @@ import Header from "../../components/Header/Header";
 import axios from "axios";
 import { API_URL } from "../../App";
 import Map from "../../components/Map/Map";
+import Map2 from "../../components/Map/Map2";
 
 class PoolMePage extends Component {
   state = {
+    user: null,
     dogToPool: null,
+    destination: null,
+    origin: null,
+    loaded: false,
   };
 
   componentDidMount() {
     axios
       .get(API_URL + "/pool/" + this.props.match.params.id)
       .then((res) => {
-        console.log(res.data);
         this.setState({
           dogToPool: res.data,
+          destination: res.data.address + " " + res.data.city,
         });
       })
       .then(() => {
-        axios.get(
-          "https://maps.googleapis.com/maps/api/directions/outputFormat?parameters"
-        );
+        const token = sessionStorage.getItem("token");
+        axios
+          .get(API_URL + "/current", {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          })
+          .then((res) => {
+            this.setState({
+              origin: res.data.user.address + " " + res.data.user.city,
+              loaded: true,
+            });
+          })
+          .catch((err) => {
+            console.log(err + "eeeeee");
+          });
       })
       .catch((err) => console.log(err));
   }
+
+  renderMap = () => {
+    if (!this.state.loaded) {
+      return <p>loading...</p>;
+    } else {
+      return (
+        <Map2 destination={this.state.destination} origin={this.state.origin} />
+      );
+    }
+  };
 
   render() {
     if (!this.state.dogToPool) {
@@ -68,7 +96,13 @@ class PoolMePage extends Component {
               <button className="PoolMePage__chat-button">Chat</button>
             </div>
 
-            <Map address={pool.address} city={this.city} />
+            {this.renderMap()}
+            {/* <Map address={pool.address} city={this.city} /> */}
+
+            {/* <Map2
+              destination={this.state.destination}
+              origin={this.state.origin}
+            /> */}
           </div>
         </main>
       </>
