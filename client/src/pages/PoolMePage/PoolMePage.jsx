@@ -55,13 +55,18 @@ class PoolMePage extends Component {
           </div>
 
           <div>
-            <p className="PoolMePage__contact-info">
-              {"contact: " + pool.first_name + " " + pool.last_name}
-            </p>
-            <p className="PoolMePage__contact-info">{pool.email}</p>
-            <p className="PoolMePage__contact-info">{pool.phone_number}</p>
-            <p className="PoolMePage__contact-info">{pool.city}</p>
-            <p className="PoolMePage__contact-info">{pool.address}</p>
+            <div className="PoolMePage__contact-container">
+              <div>
+                <p className="PoolMePage__contact-info">
+                  {"contact: " + pool.first_name + " " + pool.last_name}
+                </p>
+                <p className="PoolMePage__contact-info">{pool.email}</p>
+                <p className="PoolMePage__contact-info">{pool.phone_number}</p>
+                <p className="PoolMePage__contact-info">{pool.city}</p>
+                <p className="PoolMePage__contact-info">{pool.address}</p>
+              </div>
+              <button className="PoolMePage__chat-button">Chat</button>
+            </div>
 
             <Map address={pool.address} city={this.city} />
           </div>
