@@ -87,9 +87,7 @@ class HomePage extends Component {
       <>
         <Header avatar={this.state.user.dog.photo} />
         <main className="home">
-          <h2 className="home__title">
-            Going for a walk today, {first_name} ?{" "}
-          </h2>
+          <h2 className="home__title">Going for a walk today {first_name}? </h2>
           {dogPool.map((dog) => {
             return (
               <PoolCard

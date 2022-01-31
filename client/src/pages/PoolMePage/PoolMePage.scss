@@ -4,16 +4,25 @@
 .PoolMePage {
   @include mobile-side-padding;
   height: 100vh;
-  background-image: url("../../assets/background.jpg");
+  background-image: url("../../assets/background-poolme.jpg");
   padding-top: 1rem;
 
   &__photo {
     width: 7rem;
     border-radius: 1rem;
   }
+  &__photo {
+    font-family: "Avenir";
+    font-weight: 700;
+  }
 
   &__dog-info {
     padding-left: 1rem;
+    font-family: "Avenir";
+  }
+  &__contact-info {
+    font-family: "Avenir";
+    font-size: 0.75rem;
   }
 
   &__dog-container {

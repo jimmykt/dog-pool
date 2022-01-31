@@ -116,9 +116,9 @@ class ProfilePage extends Component {
             <h1 className="profile__welcome">Welcome back, {first_name} </h1>
           </div>
           <img className="profile__dog-photo" src={photo} alt="dog" />
-          <p className="profile__text profile__text--margin-bottom">
+          {/* <p className="profile__text profile__text--margin-bottom">
             {dog_info}
-          </p>
+          </p> */}
           <div className="profile__status">
             <div className="profile__buttons-container">
               <p className="profile__text">

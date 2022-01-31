@@ -1,6 +1,8 @@
 .Map {
   &__Marker {
-    width: 5rem;
-    background-color: red;
+    width: fit-content;
+    color: red;
+    font-size: 5rem;
+    font-weight: 700;
   }
 }
