@@ -1,15 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const controller = require("../controllers/registerRoutes");
+const controller = require("../controllers/registerController");
 
-router.route("/register/user").post(controller.addNewUser);
+router.route("/user").post(controller.addNewUser);
 router.route("/getid/:email").get(controller.getId);
-router.route("/register/dog").post(controller.addDog);
-
-router.route("/login").post(controller.loginUser);
-router.route("/current").get(controller.getCurrentUser);
-
-router.route("/get-dog-by/:id").get(controller.getUserDog);
+router.route("/dog").post(controller.addDog);
 
 module.exports = router;
