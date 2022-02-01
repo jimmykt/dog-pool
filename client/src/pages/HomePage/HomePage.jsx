@@ -62,8 +62,8 @@ class HomePage extends Component {
   render() {
     if (this.state.failedAuth) {
       return (
-        <main className="dashboard">
-          <p>
+        <main className="home__failed">
+          <p className="home__failed-login">
             You must be logged in to see this page.{" "}
             <Link to="/login">Log in</Link>
           </p>

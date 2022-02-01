@@ -9,4 +9,13 @@
 
   &__title {
   }
+
+  &__failed {
+    @include mobile-side-padding;
+    background-image: url("../../assets/home-background.jpg");
+    height: 50rem;
+  }
+  &__failed-login {
+    padding-top: 15rem;
+  }
 }
