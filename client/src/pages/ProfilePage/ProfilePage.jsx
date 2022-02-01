@@ -113,35 +113,33 @@ class ProfilePage extends Component {
         <Header />
         <main className="profile">
           <div className="profile__welcome">
-            <h1 className="">Welcome back, {first_name} </h1>
+            <h1 className="profile__welcome">Welcome back, {first_name} </h1>
           </div>
-
-          <div className="profile__dog">
-            <img className="profile__dog-photo" src={photo} alt="dog" />
-            <p className="profile__text profile__text--margin-bottom">
-              {dog_info}
-            </p>
-          </div>
-
+          <img className="profile__dog-photo" src={photo} alt="dog" />
+          {/* <p className="profile__text profile__text--margin-bottom">
+            {dog_info}
+          </p> */}
           <div className="profile__status">
-            <p className="profile__text">
-              Do you need {dog_name} walked today?
-            </p>
-            <Link to="/">
-              <button
-                className="profile__poolmydog-button"
-                onClick={this.addDogToPool}
-              >
-                Pool My Dog
-              </button>
-            </Link>
+            <div className="profile__buttons-container">
+              <p className="profile__text">
+                Do you need {dog_name} walked today?
+              </p>
+              <Link to="/">
+                <button
+                  className="profile__poolmydog-button"
+                  onClick={this.addDogToPool}
+                >
+                  Pool Me
+                </button>
+              </Link>
 
-            <button
-              className="profile__remove-pool"
-              onClick={this.removeFromPool}
-            >
-              remove
-            </button>
+              <button
+                className="profile__remove-pool"
+                onClick={this.removeFromPool}
+              >
+                remove
+              </button>
+            </div>
           </div>
 
           <Link to="/login">

@@ -4,18 +4,49 @@
 .PoolMePage {
   @include mobile-side-padding;
   height: 100vh;
-  background-image: url("../../assets/background.jpg");
+  background-image: url("../../assets/background-poolme.jpg");
   padding-top: 1rem;
+  font-family: "Lobster";
 
   &__photo {
     width: 7rem;
     border-radius: 1rem;
   }
-
+  &__name {
+    border-bottom: 2px solid black;
+    font-size: 1.5rem;
+  }
   &__dog-info {
-    padding-left: 1rem;
+    font-family: "Avenir";
+    font-size: 0.875rem;
+  }
+  &__dog-info-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+  }
+  &__contact-info {
+    font-family: "Avenir";
+    font-size: 0.75rem;
+    font-weight: 400;
   }
 
+  &__contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__chat-button {
+    @include button-defaults;
+    margin-bottom: 0.5rem;
+    color: white;
+    background-color: #0095f6;
+    height: 1.5rem;
+    font-size: 0.75rem;
+    width: fit-content;
+    padding: 0.25rem 0.5rem;
+  }
   &__dog-container {
     display: flex;
     align-items: center;
@@ -24,4 +55,7 @@
 
 p {
   margin-bottom: 0;
+}
+
+.highlight-text {
 }

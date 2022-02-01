@@ -3,9 +3,10 @@
 .home {
   @include mobile-side-padding;
   background-image: url("../../assets/home-background.jpg");
-  height: 100vh;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-repeat: repeat-x;
 
   &__title {
-    padding-top: 1rem;
   }
 }

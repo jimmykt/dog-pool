@@ -2,11 +2,13 @@
 
 .header {
   position: relative;
-  background-color: #edcdbb;
+  // background-color: hsl(22, 58%, 83%);
   display: flex;
   text-align: center;
   justify-content: center;
   @include mobile-side-padding;
+  font-family: "Lobster";
+  border-bottom: solid 1px hsl(22, 58%, 83%);
 
   &__avatar {
     background-color: black;

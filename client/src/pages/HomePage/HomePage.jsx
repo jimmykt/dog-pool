@@ -11,7 +11,6 @@ class HomePage extends Component {
   state = {
     user: null,
     failedAuth: false,
-
     dogPool: null,
   };
 
@@ -75,6 +74,8 @@ class HomePage extends Component {
     if (!this.state.user || !this.state.dogPool) {
       return (
         <main className="home">
+          <Header />
+
           <p>Loading...</p>
         </main>
       );
@@ -87,9 +88,7 @@ class HomePage extends Component {
       <>
         <Header avatar={this.state.user.dog.photo} />
         <main className="home">
-          <h2 className="home__title">
-            Going for a walk today, {first_name} ?{" "}
-          </h2>
+          <h2 className="home__title">Going for a walk today {first_name}? </h2>
           {dogPool.map((dog) => {
             return (
               <PoolCard

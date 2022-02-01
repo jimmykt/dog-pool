@@ -1,32 +1,59 @@
 import "./PoolMePage.scss";
 import { Component } from "react";
 import Header from "../../components/Header/Header";
-import { getDog } from "../../Util/axiosUtil";
 import axios from "axios";
 import { API_URL } from "../../App";
+import Map from "../../components/Map/Map";
+import Map2 from "../../components/Map/Map2";
 
 class PoolMePage extends Component {
   state = {
+    user: null,
     dogToPool: null,
+    destination: null,
+    origin: null,
+    loaded: false,
   };
 
   componentDidMount() {
-    getDog();
     axios
       .get(API_URL + "/pool/" + this.props.match.params.id)
       .then((res) => {
-        console.log(res.data);
         this.setState({
           dogToPool: res.data,
+          destination: res.data.address + " " + res.data.city,
         });
       })
       .then(() => {
-        axios.get(
-          "https://maps.googleapis.com/maps/api/directions/outputFormat?parameters"
-        );
+        const token = sessionStorage.getItem("token");
+        axios
+          .get(API_URL + "/current", {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          })
+          .then((res) => {
+            this.setState({
+              origin: res.data.user.address + " " + res.data.user.city,
+              loaded: true,
+            });
+          })
+          .catch((err) => {
+            console.log(err + "eeeeee");
+          });
       })
       .catch((err) => console.log(err));
   }
+
+  renderMap = () => {
+    if (!this.state.loaded) {
+      return <p>loading...</p>;
+    } else {
+      return (
+        <Map2 destination={this.state.destination} origin={this.state.origin} />
+      );
+    }
+  };
 
   render() {
     if (!this.state.dogToPool) {
@@ -43,26 +70,32 @@ class PoolMePage extends Component {
         <Header />
         <main className="PoolMePage">
           <div className="PoolMePage__dog-container">
-            <div>
-              <h1 className="PoolMePage__name">{pool.dog_name}</h1>
-              <img
-                className="PoolMePage__photo"
-                src={pool.photo}
-                alt="dog"
-              ></img>
+            <img className="PoolMePage__photo" src={pool.photo} alt="dog"></img>
+            <div className="PoolMePage__dog-info-container">
+              <h1 className="PoolMePage__name">
+                {"Pool " + pool.dog_name + "?"}
+              </h1>
+              <p className="PoolMePage__dog-info">{pool.dog_info}</p>
             </div>
-
-            <p className="PoolMePage__dog-info">{pool.dog_info}</p>
           </div>
 
           <div>
-            <p className="PoolMePage__dog-info">
-              {pool.first_name + " " + pool.last_name}
-            </p>
-            <p className="PoolMePage__dog-info">{pool.email}</p>
-            <p className="PoolMePage__dog-info">{pool.phone_number}</p>
-            <p className="PoolMePage__dog-info">{pool.city}</p>
-            <p className="PoolMePage__dog-info">{pool.address}</p>
+            <div className="PoolMePage__contact-container">
+              <div>
+                <p className="PoolMePage__contact-info">
+                  {"contact: " + pool.first_name + " " + pool.last_name}
+                </p>
+                <p className="PoolMePage__contact-info">{pool.email}</p>
+                <p className="PoolMePage__contact-info">{pool.phone_number}</p>
+                <p className="PoolMePage__contact-info">
+                  {pool.address + ", " + pool.city}
+                </p>
+                <p className="PoolMePage__contact-info">{}</p>
+              </div>
+              <button className="PoolMePage__chat-button">Chat</button>
+            </div>
+
+            {this.renderMap()}
           </div>
         </main>
       </>
