@@ -63,7 +63,7 @@ class Map extends Component {
     }
     return (
       <div className="Map">
-        <p>{this.state.km + " away"}</p>
+        <p className="Map__km">{this.state.km + " away"}</p>
         <LoadScript googleMapsApiKey="AIzaSyDZ4HxogFXeESTTN2JXpPpjCRozf7vEfIk">
           <GoogleMap
             id="direction-example"

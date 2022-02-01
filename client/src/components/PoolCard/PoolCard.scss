@@ -2,17 +2,15 @@
 @use "../../styles/partials/variables.scss" as *;
 
 .poolcard {
-  margin: 0.5rem 0rem;
-  border: solid 1px black;
-  bottom: solid 1px hsl(22, 58%, 83%);
-
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   border-radius: 1rem;
-  padding: 0.5rem 0rem;
-  background: rgba(0, 0, 0, 0.2);
-  background: rgba(0, 0, 0, 0);
+  padding: 4.5rem 0rem;
+  background: rgb(255, 255, 255, 0.94);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  height: 8rem;
 
   &__dog-name {
     text-align: center;
@@ -21,7 +19,7 @@
 
   &__photo {
     border-radius: 1rem;
-    width: 5rem;
+    width: 6rem;
   }
   &__pool-button {
     @include button-defaults;

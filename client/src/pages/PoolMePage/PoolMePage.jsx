@@ -70,16 +70,13 @@ class PoolMePage extends Component {
         <Header />
         <main className="PoolMePage">
           <div className="PoolMePage__dog-container">
-            <div>
-              <h1 className="PoolMePage__name">{pool.dog_name}</h1>
-              <img
-                className="PoolMePage__photo"
-                src={pool.photo}
-                alt="dog"
-              ></img>
+            <img className="PoolMePage__photo" src={pool.photo} alt="dog"></img>
+            <div className="PoolMePage__dog-info-container">
+              <h1 className="PoolMePage__name">
+                {"Pool " + pool.dog_name + "?"}
+              </h1>
+              <p className="PoolMePage__dog-info">{pool.dog_info}</p>
             </div>
-
-            <p className="PoolMePage__dog-info">{pool.dog_info}</p>
           </div>
 
           <div>
@@ -90,19 +87,15 @@ class PoolMePage extends Component {
                 </p>
                 <p className="PoolMePage__contact-info">{pool.email}</p>
                 <p className="PoolMePage__contact-info">{pool.phone_number}</p>
-                <p className="PoolMePage__contact-info">{pool.city}</p>
-                <p className="PoolMePage__contact-info">{pool.address}</p>
+                <p className="PoolMePage__contact-info">
+                  {pool.address + ", " + pool.city}
+                </p>
+                <p className="PoolMePage__contact-info">{}</p>
               </div>
               <button className="PoolMePage__chat-button">Chat</button>
             </div>
 
             {this.renderMap()}
-            {/* <Map address={pool.address} city={this.city} /> */}
-
-            {/* <Map2
-              destination={this.state.destination}
-              origin={this.state.origin}
-            /> */}
           </div>
         </main>
       </>
