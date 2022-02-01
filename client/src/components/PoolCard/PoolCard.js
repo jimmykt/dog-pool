@@ -15,10 +15,12 @@ export default function PoolCard(props) {
       </div>
 
       <div>
+        <div className="poolcard__distance">
+          <Distance destination={destinationAddress} origin={userAdress} />
+        </div>
         <Link className="poolcard__pool-button" to={"/pool-me/" + owner_id}>
           Pool Me
         </Link>
-        <Distance destination={destinationAddress} origin={userAdress} />
       </div>
     </article>
   );

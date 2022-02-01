@@ -3,6 +3,8 @@
 
 .SignUpPage {
   @include mobile-side-padding;
+  background-image: url("../../assets/signup-background.jpg");
+  height: 100vh;
 
   &__dog-info {
     width: 100%;

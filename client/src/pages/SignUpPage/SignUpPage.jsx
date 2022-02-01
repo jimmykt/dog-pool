@@ -1,7 +1,7 @@
 import "./SignUpPage.scss";
 import { Component } from "react";
 import axios from "axios";
-
+import Header from "../../components/Header/Header";
 import SignUpInput from "../../components/SignUpInput/SignUpInput";
 
 export default class SignUpPage extends Component {
@@ -48,6 +48,7 @@ export default class SignUpPage extends Component {
   render() {
     return (
       <main className="SignUpPage">
+        <Header />
         <form onSubmit={this.handleSubmit}>
           <SignUpInput placeholder="First Name" type="text" id="first_name" />
           <SignUpInput placeholder="Last Name" type="text" id="last_name" />

@@ -42,8 +42,8 @@ class Distance extends Component {
   render() {
     return (
       <div>
-        distance
-        {/* <LoadScript googleMapsApiKey="AIzaSyDZ4HxogFXeESTTN2JXpPpjCRozf7vEfIk">
+        <p>{this.state.km + " away"}</p>
+        <LoadScript googleMapsApiKey="AIzaSyDZ4HxogFXeESTTN2JXpPpjCRozf7vEfIk">
           <DirectionsService
             options={{
               destination: this.state.destination,
@@ -51,13 +51,10 @@ class Distance extends Component {
               travelMode: this.state.travelMode,
             }}
             callback={this.directionsCallback}
-            onLoad={(directionsService) => {
-
-            }}
-            onUnmount={(directionsService) => {
-            }}
+            onLoad={(directionsService) => {}}
+            onUnmount={(directionsService) => {}}
           />
-        </LoadScript> */}
+        </LoadScript>
       </div>
     );
   }

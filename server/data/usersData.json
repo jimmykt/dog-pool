@@ -39,7 +39,7 @@
     "email": "test3",
     "password": "test3",
     "phone_number": "647-123-4567",
-    "address": "445 Adelaide St W",
+    "address": "2 Trinity St",
     "city": "Toronto"
   },
 
@@ -61,7 +61,7 @@
     "email": "test5",
     "password": "test5",
     "phone_number": "647-123-4567",
-    "address": "115 Bathurst St",
+    "address": "1 Dundas St E",
     "city": "Toronto"
   }
 ]

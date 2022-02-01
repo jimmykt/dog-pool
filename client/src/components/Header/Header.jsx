@@ -54,7 +54,9 @@ class Header extends Component {
     if (this.state.failedAuth) {
       return (
         <header className="header">
-          <h1 className="header__title">DogPool</h1>
+          <Link to="/login" className="header__title">
+            <h1 className="header__title">DogPool</h1>
+          </Link>
           <div className="header__toggle">
             <span className="header__bar"></span>
             <span className="header__bar"></span>
