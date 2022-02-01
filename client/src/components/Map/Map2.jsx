@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { API_URL } from "../../App";
+import "./Map.scss";
 
 import {
   DirectionsRenderer,
@@ -8,17 +7,6 @@ import {
   LoadScript,
   DirectionsService,
 } from "@react-google-maps/api";
-import "./Map.scss";
-
-const containerStyle = {
-  width: "100%",
-  height: "340px",
-};
-
-const center = {
-  lat: 43.64563,
-  lng: -79.39545,
-};
 
 class Map extends Component {
   constructor(props) {
@@ -93,16 +81,16 @@ class Map extends Component {
                 }}
                 callback={this.directionsCallback}
                 onLoad={(directionsService) => {
-                  console.log(
-                    "DirectionsService onLoad directionsService: ",
-                    directionsService
-                  );
+                  // console.log(
+                  //   "DirectionsService onLoad directionsService: ",
+                  //   directionsService
+                  // );
                 }}
                 onUnmount={(directionsService) => {
-                  console.log(
-                    "DirectionsService onUnmount directionsService: ",
-                    directionsService
-                  );
+                  // console.log(
+                  //   "DirectionsService onUnmount directionsService: ",
+                  //   directionsService
+                  // );
                 }}
               />
             )}

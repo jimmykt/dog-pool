@@ -81,24 +81,15 @@ class HomePage extends Component {
       );
     }
 
-    const { first_name } = this.state.user.user;
+    const { first_name, id } = this.state.user.user;
     const dogPool = this.state.dogPool;
-
     return (
       <>
         <Header avatar={this.state.user.dog.photo} />
         <main className="home">
           <h2 className="home__title">Going for a walk today {first_name}? </h2>
           {dogPool.map((dog) => {
-            return (
-              <PoolCard
-                key={dog.dog_id}
-                dog_name={dog.dog_name}
-                photo={dog.photo}
-                dog_id={dog.dog_id}
-                owner_id={dog.owner_id}
-              />
-            );
+            return <PoolCard dog={dog} user={this.state.user} key={id} />;
           })}
         </main>
       </>
