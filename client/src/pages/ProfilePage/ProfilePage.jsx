@@ -22,7 +22,7 @@ class ProfilePage extends Component {
     }
 
     axios
-      .get(API_URL + "/current", {
+      .get(API_URL + "/user-routes/current", {
         headers: {
           Authorization: "Bearer " + token,
         },
@@ -30,9 +30,18 @@ class ProfilePage extends Component {
 
       .then((res) => {
         this.setState({
-          user: res.data.user,
-          dog: res.data.dog,
+          user: res.data,
         });
+        console.log(this.state.user.id);
+        axios
+          .get(API_URL + "/user-routes/current-dog/" + this.state.user.id)
+          .then((res) => {
+            console.log(res.data);
+            this.setState({
+              dog: res.data,
+            });
+          })
+          .catch((err) => console.log(err));
       })
       .catch((err) => {
         console.log(err);
@@ -107,7 +116,7 @@ class ProfilePage extends Component {
     }
 
     const { first_name } = this.state.user;
-    const { dog_name, birthday, dog_info, photo } = this.state.dog;
+    const { dog_name, birthday, dog_info, photo_file } = this.state.dog;
     return (
       <>
         <Header />
@@ -115,7 +124,11 @@ class ProfilePage extends Component {
           <div className="profile__welcome">
             <h1 className="profile__welcome">Welcome back, {first_name} </h1>
           </div>
-          <img className="profile__dog-photo" src={photo} alt="dog" />
+          <img
+            className="profile__dog-photo"
+            src={this.state.dog.photo_file}
+            alt="dog"
+          />
           {/* <p className="profile__text profile__text--margin-bottom">
             {dog_info}
           </p> */}

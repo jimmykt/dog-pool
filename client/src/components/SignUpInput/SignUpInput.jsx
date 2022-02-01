@@ -1,6 +1,6 @@
 import "./SignUpInput.scss";
 
-export default function SignUpInput({ type, id, placeholder }) {
+export default function SignUpInput({ type, id, placeholder, onChange }) {
   return (
     <div className="SignUpInput">
       <input
@@ -9,6 +9,7 @@ export default function SignUpInput({ type, id, placeholder }) {
         name={id}
         id={id}
         placeholder={placeholder}
+        onChange={onChange}
       />
     </div>
   );

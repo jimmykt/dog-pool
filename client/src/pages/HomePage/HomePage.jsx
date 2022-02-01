@@ -19,8 +19,10 @@ class HomePage extends Component {
 
     if (!token) {
       this.setState({ failedAuth: true });
+      console.log("no token");
       return;
     }
+    console.log("token");
 
     axios
       .get(API_URL + "/current", {

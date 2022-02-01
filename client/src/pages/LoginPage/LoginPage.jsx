@@ -13,10 +13,8 @@ export default class LoginPage extends Component {
 
   loginHandler = (e) => {
     e.preventDefault();
-    console.log(API_URL);
-
     axios
-      .post(API_URL + "/login", {
+      .post(API_URL + "/user-routes/login", {
         email: e.target.email.value,
         password: e.target.password.value,
       })

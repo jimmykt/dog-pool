@@ -12,8 +12,6 @@ import PoolMePage from "./pages/PoolMePage/PoolMePage";
 // export let API_URL = process.env.REACT_APP_API_URL;
 export const API_URL = "http://localhost:8080";
 
-console.log(API_URL);
-
 function App() {
   return (
     <div className="App">
@@ -22,7 +20,7 @@ function App() {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignUpPage} />
-          <Route exact path="/add-dog/:id" component={AddDog} />
+          <Route exact path="/register-dog/:id" component={AddDog} />
           <Route exact path="/profile" component={PorfilePage} />
           <Route exact path="/pool-me/:id" component={PoolMePage} />
         </Switch>

@@ -1,7 +1,7 @@
 import "./SignUpDogPage.scss";
 import { Component } from "react";
 import axios from "axios";
-
+import Header from "../../components/Header/Header";
 import SignUpInput from "../../components/SignUpInput/SignUpInput";
 
 export default class SignUpPage extends Component {
@@ -10,21 +10,27 @@ export default class SignUpPage extends Component {
     success: false,
     date: new Date(),
 
-    file: null,
-    fileName: "",
+    photo_file: null,
+  };
+
+  saveFile = (e) => {
+    this.setState({
+      photo_file: e.target.files[0],
+    });
+    console.log(e.target.files[0]);
+    console.log(this.state.photo_file);
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log(e);
     axios
       .post("http://localhost:8080/register/dog", {
         dog_name: e.target.dog_name.value,
         birthday: e.target.birthday.value,
         dog_info: e.target.dog_info.value,
         owner_id: this.props.match.params.id,
-        photo_name: this.state.fileName,
-        photo_file: this.state.file,
+        photo_file: this.state.photo_file,
       })
       .then(() => {
         this.setState({ success: true, error: "" });
@@ -39,7 +45,8 @@ export default class SignUpPage extends Component {
   render() {
     return (
       <main className="SignUpDogPage">
-        <form onSubmit={this.handleSubmit}>
+        <Header />
+        <form className="SignUpDogPage__form" onSubmit={this.handleSubmit}>
           <p className="SignUpDogPage__upload-text">
             Upload a Photo of you Dog
           </p>

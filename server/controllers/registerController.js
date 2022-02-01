@@ -47,7 +47,6 @@ exports.getId = (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      console.log("whyyy");
       res.status(400).send(err);
     });
 };

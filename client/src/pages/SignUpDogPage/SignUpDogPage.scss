@@ -1,8 +1,11 @@
 @use "../../styles/partials/mixins.scss" as *;
 
 .SignUpDogPage {
-  @include mobile-side-padding;
-
+  background-image: url("../../assets/signup-background.jpg");
+  height: 100vh;
+  &__form {
+    @include mobile-side-padding;
+  }
   &__birthday-label {
     width: 40%;
   }
