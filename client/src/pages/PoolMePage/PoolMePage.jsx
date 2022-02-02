@@ -3,7 +3,7 @@ import { Component } from "react";
 import Header from "../../components/Header/Header";
 import axios from "axios";
 import { API_URL } from "../../App";
-import Map from "../../components/Map/Map";
+// import Map from "../../components/Map/Map";
 import Map2 from "../../components/Map/Map2";
 
 class PoolMePage extends Component {
