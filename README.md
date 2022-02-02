@@ -27,4 +27,4 @@ heimdall@gmail.com
 
 nick@gmail.com
 
-![alt text](https://drive.google.com/file/d/1kuGoQTWdmwFVEW_OotEP0s5_NopgGZVB/view?usp=sharing)
+![image](https://drive.google.com/uc?export=view&id=1kuGoQTWdmwFVEW_OotEP0s5_NopgGZVB)
