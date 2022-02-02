@@ -11,18 +11,20 @@ cd into server and client and run:
 
 to use preset login users.\
 
-Password: \
-test\
+Password:
+test
 
-Usernames\
-jim@gmail.com\
+Usernames:
+jim@gmail.com
 
-mike@gmail.com\
+mike@gmail.com
 
-pat@gmail.com\
+pat@gmail.com
 
-ana@gmail.com\
+ana@gmail.com
 
-heimdall@gmail.com\
+heimdall@gmail.com
 
-nick@gmail.com\
+nick@gmail.com
+
+![alt text](https://drive.google.com/file/d/1kuGoQTWdmwFVEW_OotEP0s5_NopgGZVB/view?usp=sharing)
