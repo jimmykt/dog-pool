@@ -27,7 +27,15 @@ heimdall@gmail.com
 
 nick@gmail.com
 
-![image](https://drive.google.com/uc?export=view&id=1j3aScn-di2O1uTmiudNGhJJCcST9oWGq)
+![image](https://drive.google.com/uc?export=1v8dfAjezKtcHiq22TdyCRusWTcohfK2O)
 ![image](https://drive.google.com/uc?export=view&id=1_51GDFYI60EsDF-YtTy6h8qy-hQZLJgG)
 ![image](https://drive.google.com/uc?export=view&id=1p06ghfuAKKbwoDO_NNV9Fm_vS017fFhK)
 ![image](https://drive.google.com/uc?export=view&id=1QW6AUBdMXWKKS2mrE1fSigjEclegbJ2O)
+
+<a href="https://drive.google.com/uc?export=view&id=1v8dfAjezKtcHiq22TdyCRusWTcohfK2O"><img src="https://drive.google.com/uc?export=view&id=<FILEID>" style="width: 50%; max-width: 50%; height: auto" title="Click to enlarge picture" />
+
+<a href="https://drive.google.com/uc?export=view&id=<FILEID>"><img src="https://drive.google.com/uc?export=view&id=<FILEID>" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+
+<a href="https://drive.google.com/uc?export=view&id=<FILEID>"><img src="https://drive.google.com/uc?export=view&id=<FILEID>" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+
+<a href="https://drive.google.com/uc?export=view&id=<FILEID>"><img src="https://drive.google.com/uc?export=view&id=<FILEID>" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
