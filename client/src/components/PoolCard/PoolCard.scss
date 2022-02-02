@@ -1,0 +1,38 @@
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+
+.poolcard {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 1rem;
+  padding: 4.5rem 0rem;
+  // background: rgb(255, 255, 255, 0.94);
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  height: 8rem;
+
+  &__dog-name {
+    text-align: center;
+    margin-bottom: 0.2rem;
+  }
+
+  &__photo {
+    border-radius: 1rem;
+    width: 6rem;
+  }
+  &__pool-button {
+    @include button-defaults;
+    padding: 0.2rem 0.75rem;
+    background-color: $button-color;
+    color: black;
+    text-decoration: none;
+  }
+
+  &__distance {
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: "Avenir";
+    margin-bottom: 1rem;
+  }
+}

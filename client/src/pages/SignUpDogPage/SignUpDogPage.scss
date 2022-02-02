@@ -1,0 +1,12 @@
+@use "../../styles/partials/mixins.scss" as *;
+
+.SignUpDogPage {
+  @include mobile-side-padding;
+
+  &__birthday-label {
+    width: 40%;
+  }
+  &__birthday-input {
+    width: 100%;
+  }
+}

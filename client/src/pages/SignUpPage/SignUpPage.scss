@@ -1,0 +1,22 @@
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+
+.SignUpPage {
+  @include mobile-side-padding;
+  background-image: url("../../assets/signup-background.jpg");
+  height: 100vh;
+
+  &__dog-info {
+    width: 100%;
+  }
+
+  &__button {
+    @include button-defaults;
+    width: 100%;
+    margin-top: 0.5rem;
+    color: white;
+    background-color: $button-color;
+    height: 1.5rem;
+    font-size: 1rem;
+  }
+}

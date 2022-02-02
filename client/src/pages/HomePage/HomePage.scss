@@ -1,0 +1,21 @@
+@use "../../styles/partials/mixins.scss" as *;
+
+.home {
+  @include mobile-side-padding;
+  background-image: url("../../assets/home-background.jpg");
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-repeat: repeat-x;
+
+  &__title {
+  }
+
+  &__failed {
+    @include mobile-side-padding;
+    background-image: url("../../assets/home-background.jpg");
+    height: 50rem;
+  }
+  &__failed-login {
+    padding-top: 15rem;
+  }
+}

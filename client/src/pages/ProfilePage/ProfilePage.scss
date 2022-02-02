@@ -1,0 +1,67 @@
+@use "../../styles/partials/mixins.scss" as *;
+
+.profile {
+  background-image: url("../../assets/background-profile.jpg");
+  @include mobile-side-padding;
+  height: 99vh;
+  color: rgb(186, 169, 169);
+  color: black;
+  position: relative;
+  font-family: "Lobster";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+
+  &__welcome {
+    text-align: center;
+  }
+
+  &__dog-photo {
+    max-width: 70%;
+    border-radius: 1.25rem;
+    align-items: center;
+  }
+
+  &__text {
+    font-weight: 500;
+    padding: 0rem 0.5rem;
+    font-family: "Avenir";
+    font-weight: 500;
+    margin-top: 3rem;
+    &--margin-bottom {
+      margin-bottom: 0.5rem;
+    }
+  }
+  &__poolmydog-button {
+    @include button-defaults;
+    background-color: rgb(138, 210, 138);
+    padding: 0.25rem 2rem;
+    width: 10rem;
+    font-family: "Avenir";
+    font-weight: 500;
+  }
+  &__remove-pool {
+    @include button-defaults;
+    background-color: rgb(255, 68, 0);
+    padding: 0.25rem 2rem;
+    width: 10rem;
+    margin-top: 0.5rem;
+    font-family: "Avenir";
+    font-weight: 500;
+  }
+
+  &__buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__logout {
+    @include button-defaults;
+    padding: 0.25rem 2rem;
+    position: absolute;
+    right: 1rem;
+    bottom: 3rem;
+  }
+}
