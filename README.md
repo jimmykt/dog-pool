@@ -1,1 +1,1 @@
-## Dog Pool <code>Enter</code> :)
+## Dog Pool
