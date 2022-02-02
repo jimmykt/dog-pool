@@ -137,7 +137,7 @@ class ProfilePage extends Component {
                 className="profile__remove-pool"
                 onClick={this.removeFromPool}
               >
-                remove
+                Remove
               </button>
             </div>
           </div>
