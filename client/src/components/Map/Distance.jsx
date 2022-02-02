@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  DirectionsRenderer,
-  GoogleMap,
-  LoadScript,
-  DirectionsService,
-} from "@react-google-maps/api";
+import { LoadScript, DirectionsService } from "@react-google-maps/api";
 class Distance extends Component {
   constructor(props) {
     super(props);
