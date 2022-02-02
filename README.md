@@ -28,3 +28,6 @@ heimdall@gmail.com
 nick@gmail.com
 
 ![image](https://drive.google.com/uc?export=view&id=1kuGoQTWdmwFVEW_OotEP0s5_NopgGZVB)
+![image](https://drive.google.com/uc?export=view&id=1ka3i9RX5pG--eOATKuQDPwyikwwqsIhI)
+![image](https://drive.google.com/uc?export=view&id=1_VlgRhBC_HbT3unELFLz0Pqh7-8l1mg8)
+![image](https://drive.google.com/uc?export=view&id=1OElk8j9yXNsYvONmdTGz6zAc3d-si8V4)
