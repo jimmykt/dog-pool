@@ -33,19 +33,20 @@
 
   &__contact-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+  }
+
+  &__contact-d {
   }
 
   &__chat-button {
     @include button-defaults;
-    margin-bottom: 0.5rem;
     color: white;
     background-color: #0095f6;
-    height: 1.5rem;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     width: fit-content;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.75rem;
+    margin-left: 2.5rem;
   }
   &__dog-container {
     display: flex;

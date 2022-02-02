@@ -81,7 +81,7 @@ class PoolMePage extends Component {
 
           <div>
             <div className="PoolMePage__contact-container">
-              <div>
+              <div className="PoolMePage__contact-d">
                 <p className="PoolMePage__contact-info">
                   {"contact: " + pool.first_name + " " + pool.last_name}
                 </p>

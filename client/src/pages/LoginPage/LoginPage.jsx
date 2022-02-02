@@ -55,7 +55,7 @@ export default class LoginPage extends Component {
           {this.state.error && (
             <div className="login__message">{this.state.error}</div>
           )}
-          {this.state.successLogin && <Redirect to="/profile" />}
+          {this.state.successLogin && <Redirect to="/" />}
         </form>
 
         <Link className="login__signup" to="/signup">
