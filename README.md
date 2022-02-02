@@ -29,8 +29,8 @@ nick@gmail.com
 
 <img src="https://drive.google.com/uc?export=view&id=1v8dfAjezKtcHiq22TdyCRusWTcohfK2O" style="width: 50%; max-width: 50%; height: auto" title="Click to enlarge picture" />
 
-<img src="https://drive.google.com/uc?export=view&id=1v8dfAjezKtcHiq22TdyCRusWTcohfK2O" style="width: 50%; max-width: 50%; height: auto" title="Click to enlarge picture" />
+<img src="https://drive.google.com/uc?export=view&id=1_51GDFYI60EsDF-YtTy6h8qy-hQZLJgG" style="width: 50%; max-width: 50%; height: auto" title="Click to enlarge picture" />
 
-<img src="https://drive.google.com/uc?export=view&id=1v8dfAjezKtcHiq22TdyCRusWTcohfK2O" style="width: 50%; max-width: 50%; height: auto" title="Click to enlarge picture" />
+<img src="https://drive.google.com/uc?export=view&id=1p06ghfuAKKbwoDO_NNV9Fm_vS017fFhK" style="width: 50%; max-width: 50%; height: auto" title="Click to enlarge picture" />
 
-<img src="https://drive.google.com/uc?export=view&id=1v8dfAjezKtcHiq22TdyCRusWTcohfK2O" style="width: 50%; max-width: 50%; height: auto" title="Click to enlarge picture" />
+<img src="https://drive.google.com/uc?export=view&id=1QW6AUBdMXWKKS2mrE1fSigjEclegbJ2O" style="width: 50%; max-width: 50%; height: auto" title="Click to enlarge picture" />
